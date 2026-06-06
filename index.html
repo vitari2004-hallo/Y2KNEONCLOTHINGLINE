@@ -1,0 +1,308 @@
+/* ===========================
+   GLITCH LABEL — APP.JS
+   =========================== */
+
+// ========== DATA ==========
+
+const neonProducts = [
+  { id: 'n1', name: 'STATIC CROP TEE', category: 'tops', price: 18, emoji: '👕', tags: ['purple grid distressed crop'] },
+  { id: 'n2', name: 'CIRCUIT MESH TOP', category: 'tops', price: 16, emoji: '🩱', tags: ['mesh teal print'] },
+  { id: 'n3', name: 'GLITCH TANK', category: 'tops', price: 14, emoji: '👚', tags: ['black teal neon'] },
+  { id: 'n4', name: 'VOID CARGO PANTS', category: 'bottoms', price: 28, emoji: '👖', tags: ['dark cargo purple straps'] },
+  { id: 'n5', name: 'PIXEL MICRO SKIRT', category: 'bottoms', price: 22, emoji: '🩲', tags: ['mini purple grid'] },
+  { id: 'n6', name: 'MATRIX WIDE LEG', category: 'bottoms', price: 27, emoji: '👖', tags: ['wide teal print'] },
+  { id: 'n7', name: 'GRID MOTO JACKET', category: 'jackets', price: 38, emoji: '🧥', tags: ['moto purple black neon'] },
+  { id: 'n8', name: 'CYBER WINDBREAKER', category: 'jackets', price: 36, emoji: '🥼', tags: ['wind teal purple print'] },
+  { id: 'n9', name: 'SIGNAL CHAIN', category: 'accessories', price: 12, emoji: '📿', tags: ['chain silver teal'] },
+  { id: 'n10', name: 'STATIC CUFFS (PAIR)', category: 'accessories', price: 10, emoji: '💜', tags: ['wrist cuffs purple'] },
+  { id: 'n11', name: 'GLITCH BUCKET HAT', category: 'accessories', price: 15, emoji: '🪣', tags: ['bucket hat grid neon'] },
+  { id: 'n12', name: 'NEON TUBE SOCKS', category: 'accessories', price: 8, emoji: '🧦', tags: ['socks teal purple stripe'] },
+];
+
+const y2kProducts = [
+  { id: 'y1', name: 'BABY RHINESTONE TEE', category: 'tops', price: 17, emoji: '👕', tags: ['baby tee rhinestone pink'] },
+  { id: 'y2', name: 'METALLIC HALTER', category: 'tops', price: 15, emoji: '🩱', tags: ['halter silver metallic'] },
+  { id: 'y3', name: 'BUTTERFLY CROP', category: 'tops', price: 16, emoji: '🦋', tags: ['crop butterfly print'] },
+  { id: 'y4', name: 'JUICY VELOUR TOP', category: 'tops', price: 18, emoji: '👚', tags: ['velour pastel Y2K'] },
+  { id: 'y5', name: 'LOW RISE FLARES', category: 'bottoms', price: 27, emoji: '👖', tags: ['flare jeans low rise'] },
+  { id: 'y6', name: 'MINI DENIM SKIRT', category: 'bottoms', price: 24, emoji: '🩲', tags: ['denim mini skirt'] },
+  { id: 'y7', name: 'PLAID MICRO SKIRT', category: 'bottoms', price: 22, emoji: '🩳', tags: ['plaid micro y2k'] },
+  { id: 'y8', name: 'VELOUR TRACK PANTS', category: 'bottoms', price: 26, emoji: '👖', tags: ['velour track pastel'] },
+  { id: 'y9', name: 'FAUX FUR JACKET', category: 'jackets', price: 38, emoji: '🧥', tags: ['fur jacket pink y2k'] },
+  { id: 'y10', name: 'METALLIC PUFFER', category: 'jackets', price: 36, emoji: '🥼', tags: ['puffer silver metallic'] },
+  { id: 'y11', name: 'BUTTERFLY CLIPS (SET)', category: 'accessories', price: 9, emoji: '🦋', tags: ['clips butterfly set'] },
+  { id: 'y12', name: 'RHINESTONE CHOKER', category: 'accessories', price: 12, emoji: '💎', tags: ['choker rhinestone'] },
+  { id: 'y13', name: 'MINI FLIP PHONE BAG', category: 'accessories', price: 18, emoji: '👜', tags: ['bag flip phone y2k'] },
+  { id: 'y14', name: 'STAR HOOP EARRINGS', category: 'accessories', price: 11, emoji: '⭐', tags: ['earrings star gold'] },
+];
+
+const baseItems = [
+  { id: 'b1', name: 'STATIC CROP TEE', category: 'tops', price: 18, emoji: '👕' },
+  { id: 'b2', name: 'BABY RHINESTONE TEE', category: 'tops', price: 17, emoji: '👕' },
+  { id: 'b3', name: 'CIRCUIT MESH TOP', category: 'tops', price: 16, emoji: '🩱' },
+  { id: 'b4', name: 'BUTTERFLY CROP', category: 'tops', price: 16, emoji: '🦋' },
+  { id: 'b5', name: 'VOID CARGO PANTS', category: 'bottoms', price: 28, emoji: '👖' },
+  { id: 'b6', name: 'LOW RISE FLARES', category: 'bottoms', price: 27, emoji: '👖' },
+  { id: 'b7', name: 'PIXEL MICRO SKIRT', category: 'bottoms', price: 22, emoji: '🩲' },
+  { id: 'b8', name: 'MINI DENIM SKIRT', category: 'bottoms', price: 24, emoji: '🩲' },
+  { id: 'b9', name: 'GRID MOTO JACKET', category: 'jackets', price: 38, emoji: '🧥' },
+  { id: 'b10', name: 'FAUX FUR JACKET', category: 'jackets', price: 38, emoji: '🧥' },
+  { id: 'b11', name: 'CYBER WINDBREAKER', category: 'jackets', price: 36, emoji: '🥼' },
+  { id: 'b12', name: 'METALLIC PUFFER', category: 'jackets', price: 36, emoji: '🥼' },
+];
+
+// ========== STATE ==========
+
+let cart = [];
+let customState = {
+  selectedBase: null,
+  selectedColor: 'Original',
+  selectedPrint: 'None',
+  selectedSize: 'M',
+};
+
+// ========== PAGE ROUTING ==========
+
+function showPage(page) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+  document.getElementById('page-' + page).style.display = 'block';
+
+  // Update nav
+  document.querySelectorAll('.nav-link').forEach(l => {
+    l.classList.remove('active');
+    if (l.getAttribute('data-page') === page) l.classList.add('active');
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ========== RENDER PRODUCTS ==========
+
+function renderNeonProducts(filter = 'all') {
+  const grid = document.getElementById('neon-products');
+  const items = filter === 'all' ? neonProducts : neonProducts.filter(p => p.category === filter);
+  grid.innerHTML = items.map(p => `
+    <div class="product-card" onclick="addToCart('${p.id}','neon')">
+      <div class="prod-img">
+        <span>${p.emoji}</span>
+      </div>
+      <div class="prod-info">
+        <div class="prod-category">${p.category.toUpperCase()}</div>
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-price">€${p.price}.00</div>
+      </div>
+      <button class="prod-add" onclick="event.stopPropagation(); addToCart('${p.id}','neon')">+</button>
+    </div>
+  `).join('');
+}
+
+function renderY2KProducts(filter = 'all') {
+  const grid = document.getElementById('y2k-products');
+  const items = filter === 'all' ? y2kProducts : y2kProducts.filter(p => p.category === filter);
+  grid.innerHTML = items.map(p => `
+    <div class="product-card" onclick="addToCart('${p.id}','y2k')">
+      <div class="prod-img">
+        <span>${p.emoji}</span>
+      </div>
+      <div class="prod-info">
+        <div class="prod-category">${p.category.toUpperCase()}</div>
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-price">€${p.price}.00</div>
+      </div>
+      <button class="prod-add" onclick="event.stopPropagation(); addToCart('${p.id}','y2k')">+</button>
+    </div>
+  `).join('');
+}
+
+function renderBaseProducts(filter = 'all') {
+  const grid = document.getElementById('base-products');
+  const items = filter === 'all' ? baseItems : baseItems.filter(p => p.category === filter);
+  grid.innerHTML = items.map(p => `
+    <div class="base-card ${customState.selectedBase?.id === p.id ? 'selected' : ''}" onclick="selectBase('${p.id}')">
+      <span class="base-emoji">${p.emoji}</span>
+      <div class="base-name">${p.name}</div>
+      <div class="base-price">€${p.price}.00</div>
+    </div>
+  `).join('');
+}
+
+// ========== FILTER TABS ==========
+
+function filterNeon(cat, btn) {
+  document.querySelectorAll('.ntab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderNeonProducts(cat);
+}
+
+function filterY2K(cat, btn) {
+  document.querySelectorAll('.ytab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderY2KProducts(cat);
+}
+
+function filterBase(cat, btn) {
+  document.querySelectorAll('.bfilt').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderBaseProducts(cat);
+}
+
+// ========== CUSTOMIZER ==========
+
+function selectBase(id) {
+  const item = baseItems.find(p => p.id === id);
+  if (!item) return;
+  customState.selectedBase = item;
+  renderBaseProducts(
+    document.querySelector('.bfilt.active')?.textContent.toLowerCase() === 'all'
+      ? 'all'
+      : document.querySelector('.bfilt.active')?.textContent.toLowerCase()
+  );
+  updatePreview();
+}
+
+function selectColor(el) {
+  document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+  customState.selectedColor = el.dataset.color;
+  document.getElementById('sum-color').textContent = customState.selectedColor;
+  updatePreview();
+}
+
+function selectPrint(el, print) {
+  document.querySelectorAll('.print-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  customState.selectedPrint = print;
+  document.getElementById('sum-print').textContent = print;
+}
+
+function selectSize(el, size) {
+  document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  customState.selectedSize = size;
+  document.getElementById('sum-size').textContent = size;
+}
+
+function updatePreview() {
+  const preview = document.getElementById('selected-preview');
+  const summary = document.getElementById('custom-summary');
+  const addBtn = document.getElementById('btn-add-custom');
+
+  if (!customState.selectedBase) return;
+
+  const item = customState.selectedBase;
+  preview.classList.add('has-item');
+  preview.innerHTML = `
+    <div class="preview-emoji">${item.emoji}</div>
+    <div class="preview-name">${item.name}</div>
+    <div class="preview-color-label">${customState.selectedColor}</div>
+  `;
+
+  summary.style.display = 'flex';
+  addBtn.style.display = 'block';
+  document.getElementById('sum-piece').textContent = item.name;
+  document.getElementById('sum-color').textContent = customState.selectedColor;
+  document.getElementById('sum-print').textContent = customState.selectedPrint;
+  document.getElementById('sum-size').textContent = customState.selectedSize;
+  document.getElementById('sum-price').textContent = `€${item.price}.00`;
+}
+
+function addCustomToCart() {
+  if (!customState.selectedBase) return;
+  const item = customState.selectedBase;
+  const customText = document.getElementById('custom-text').value.trim();
+  const cartItem = {
+    id: 'custom_' + Date.now(),
+    name: item.name + ' (CUSTOM)',
+    emoji: item.emoji,
+    price: item.price,
+    detail: `${customState.selectedColor} · ${customState.selectedPrint} · Size ${customState.selectedSize}${customText ? ' · "' + customText + '"' : ''}`,
+    category: 'custom',
+  };
+  cart.push(cartItem);
+  updateCartUI();
+  showToast(`${item.name} added to bag ✦`);
+}
+
+// ========== CART ==========
+
+function addToCart(id, line) {
+  const products = line === 'neon' ? neonProducts : y2kProducts;
+  const item = products.find(p => p.id === id);
+  if (!item) return;
+  cart.push({
+    id: id + '_' + Date.now(),
+    name: item.name,
+    emoji: item.emoji,
+    price: item.price,
+    detail: item.category,
+    category: line,
+  });
+  updateCartUI();
+  showToast(`${item.name} added to bag`);
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(i => i.id !== id);
+  updateCartUI();
+}
+
+function updateCartUI() {
+  const count = cart.length;
+  document.getElementById('cart-count').textContent = count;
+
+  const itemsContainer = document.getElementById('cart-items');
+  const footer = document.getElementById('cart-footer');
+
+  if (cart.length === 0) {
+    itemsContainer.innerHTML = '<p class="cart-empty">Your bag is empty.</p>';
+    footer.style.display = 'none';
+    return;
+  }
+
+  itemsContainer.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <span class="cart-item-emoji">${item.emoji}</span>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-sub">${item.detail}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem">
+        <span class="cart-item-price">€${item.price}.00</span>
+        <span class="cart-item-remove" onclick="removeFromCart('${item.id}')">✕</span>
+      </div>
+    </div>
+  `).join('');
+
+  const total = cart.reduce((sum, i) => sum + i.price, 0);
+  document.getElementById('cart-total').textContent = `€${total.toFixed(2)}`;
+  footer.style.display = 'block';
+}
+
+function toggleCart() {
+  const sidebar = document.getElementById('cart-sidebar');
+  const overlay = document.getElementById('cart-overlay');
+  const isOpen = sidebar.classList.contains('open');
+  sidebar.classList.toggle('open', !isOpen);
+  overlay.classList.toggle('open', !isOpen);
+  document.body.style.overflow = isOpen ? '' : 'hidden';
+}
+
+// ========== TOAST ==========
+
+let toastTimer = null;
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+}
+
+// ========== INIT ==========
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderNeonProducts();
+  renderY2KProducts();
+  renderBaseProducts();
+});
