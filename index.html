@@ -9,33 +9,33 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Bebas+Neue&family=Space+Mono:wght@400;700&family=VT323&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --bg:#0a0814;
-  --bg2:#100c24;
-  --bg3:#18123a;
-  --panel:#1e1650;
-  --panel2:#241d5c;
-  --silver:#c0c8e0;
-  --silver2:#8898b8;
-  --silver3:#d8e0f0;
-  --purple:#7b2fff;
-  --purple2:#a855f7;
-  --purple3:#c084fc;
-  --purple-dim:#3d1a7a;
-  --blue:#2563eb;
-  --blue2:#60a5fa;
-  --blue3:#93c5fd;
-  --teal:#06b6d4;
-  --teal2:#67e8f9;
-  --accent:#e879f9;
-  --accent2:#f0abfc;
-  --gold:#e2c97e;
-  --white:#f0f4ff;
-  --text-dim:#8898b8;
-  --border:rgba(120,100,220,0.25);
-  --border2:rgba(120,100,220,0.5);
-  --glow-p:rgba(123,47,255,0.4);
-  --glow-t:rgba(6,182,212,0.4);
-  --glow-a:rgba(232,121,249,0.4);
+  --bg:#1c1838;
+  --bg2:#251f4a;
+  --bg3:#2e2860;
+  --panel:#342e6e;
+  --panel2:#3d3680;
+  --silver:#d0d8f0;
+  --silver2:#a8b4d0;
+  --silver3:#e8eeff;
+  --purple:#9b5fff;
+  --purple2:#bf87ff;
+  --purple3:#d9b4ff;
+  --purple-dim:#5a2fa8;
+  --blue:#3b7fff;
+  --blue2:#82b8ff;
+  --blue3:#b3d4ff;
+  --teal:#22d3ee;
+  --teal2:#88f0ff;
+  --accent:#f09fff;
+  --accent2:#f8c8ff;
+  --gold:#f0dd9a;
+  --white:#f5f0ff;
+  --text-dim:#a0aac8;
+  --border:rgba(160,140,255,0.28);
+  --border2:rgba(160,140,255,0.55);
+  --glow-p:rgba(155,95,255,0.45);
+  --glow-t:rgba(34,211,238,0.45);
+  --glow-a:rgba(240,159,255,0.45);
   --font-d:'Orbitron',monospace;
   --font-r:'Bebas Neue',sans-serif;
   --font-vt:'VT323',monospace;
@@ -52,7 +52,7 @@ body{background:var(--bg);color:var(--white);font-family:var(--font-b);min-heigh
 @keyframes twinkle{0%,100%{opacity:0.1;transform:scale(1)}50%{opacity:var(--op,0.8);transform:scale(1.4)}}
  
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(10,8,20,0.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(28,24,56,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:var(--font-d);font-size:1rem;font-weight:900;cursor:pointer;letter-spacing:0.08em;color:var(--white)}
 .nav-logo span{color:var(--purple2);text-shadow:0 0 12px var(--glow-p)}
 .nav-links{display:flex;align-items:center;gap:1.5rem}
@@ -113,10 +113,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;display:flex;ali
 .home-lines{display:grid;grid-template-columns:1fr 1fr;min-height:52vh}
 .lc{position:relative;padding:3.5rem;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;transition:transform 0.3s}
 .lc:hover{transform:scale(1.01)}
-.lc-neon{background:linear-gradient(135deg,#0a0814 40%,#150d2e)}
-.lc-neon::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(123,47,255,0.2),transparent 60%)}
-.lc-y2k{background:linear-gradient(135deg,#100c24,#1a1050)}
-.lc-y2k::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 60%,rgba(6,182,212,0.15),transparent 60%)}
+.lc-neon{background:linear-gradient(135deg,#1c1838 40%,#2e2060)}
+.lc-neon::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(155,95,255,0.25),transparent 60%)}
+.lc-y2k{background:linear-gradient(135deg,#201c48,#263070)}
+.lc-y2k::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 60%,rgba(34,211,238,0.2),transparent 60%)}
 .lc-bar{position:absolute;top:0;left:0;right:0;height:2px}
 .lc-neon .lc-bar{background:linear-gradient(90deg,var(--purple),var(--accent));box-shadow:0 0 16px var(--glow-p)}
 .lc-y2k .lc-bar{background:linear-gradient(90deg,var(--teal),var(--blue2));box-shadow:0 0 16px var(--glow-t)}
@@ -160,8 +160,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;display:flex;ali
 /* ── PRODUCT PAGES HERO ── */
 .pg-hero{min-height:48vh;display:flex;align-items:center;padding:4rem;position:relative;overflow:hidden}
 .pg-hero-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(100,80,200,0.02) 3px,rgba(100,80,200,0.02) 4px);pointer-events:none}
-.neon-pg .pg-hero{background:radial-gradient(ellipse 80% 60% at 30% 50%,rgba(123,47,255,0.22),transparent 70%),var(--bg)}
-.y2k-pg .pg-hero{background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(6,182,212,0.18),transparent 70%),var(--bg)}
+.neon-pg .pg-hero{background:radial-gradient(ellipse 80% 60% at 30% 50%,rgba(155,95,255,0.28),transparent 70%),var(--bg)}
+.y2k-pg .pg-hero{background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(34,211,238,0.22),transparent 70%),var(--bg)}
 .pg-eyebrow{font-family:var(--font-vt);font-size:1.3rem;letter-spacing:0.12em;margin-bottom:0.5rem}
 .neon-pg .pg-eyebrow{color:var(--purple3)}
 .y2k-pg .pg-eyebrow{color:var(--teal2)}
@@ -173,8 +173,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;display:flex;ali
  
 /* ── TABS ── */
 .tab-bar{display:flex;border-bottom:1px solid var(--border);padding:0 4rem;overflow-x:auto}
-.neon-pg .tab-bar{background:rgba(10,8,20,0.8)}
-.y2k-pg .tab-bar{background:rgba(10,8,20,0.7)}
+.neon-pg .tab-bar{background:rgba(28,24,56,0.85)}
+.y2k-pg .tab-bar{background:rgba(28,24,56,0.75)}
 .tab-btn{padding:0.9rem 1.3rem;background:transparent;border:none;border-bottom:2px solid transparent;font-family:var(--font-d);font-size:0.6rem;letter-spacing:0.15em;cursor:pointer;white-space:nowrap;transition:all 0.2s;text-transform:uppercase}
 .neon-pg .tab-btn{color:rgba(255,255,255,0.3)}
 .neon-pg .tab-btn:hover{color:rgba(255,255,255,0.7)}
@@ -196,8 +196,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;display:flex;ali
 .y2k-pg .pcard{background:var(--panel);border:1px solid rgba(6,182,212,0.2)}
 .y2k-pg .pcard:hover{border-color:var(--teal2);box-shadow:0 0 28px var(--glow-t)}
 .pcard-img{height:220px;display:flex;align-items:center;justify-content:center;font-size:4.5rem;position:relative;overflow:hidden}
-.neon-pg .pcard-img{background:linear-gradient(135deg,#0f0a2a,#1a1040)}
-.y2k-pg .pcard-img{background:linear-gradient(135deg,#0c0a28,#0f1a3a)}
+.neon-pg .pcard-img{background:linear-gradient(135deg,#2a2050,#1e3060)}
+.y2k-pg .pcard-img{background:linear-gradient(135deg,#1e2060,#1a3a5a)}
 .pcard-img::after{content:'';position:absolute;inset:0;opacity:0.5;transition:opacity 0.2s}
 .neon-pg .pcard-img::after{background:radial-gradient(circle at 50% 50%,rgba(123,47,255,0.12),transparent 70%)}
 .y2k-pg .pcard-img::after{background:radial-gradient(circle at 50% 50%,rgba(6,182,212,0.1),transparent 70%)}
@@ -291,20 +291,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;display:flex;ali
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .form-group{display:flex;flex-direction:column;gap:0.4rem}
 .form-group label{font-family:var(--font-d);font-size:0.58rem;letter-spacing:0.18em;color:var(--text-dim);text-transform:uppercase}
-.form-group input,.form-group select{padding:0.65rem 0.85rem;background:var(--panel);border:1px solid var(--border);color:var(--white);font-family:var(--font-m);font-size:0.78rem;outline:none;transition:border-color 0.2s;clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px))}
-.form-group input:focus,.form-group select:focus{border-color:var(--purple2);box-shadow:0 0 12px var(--glow-p)}
-.form-group input::placeholder{color:var(--text-dim)}
+.form-group input,.form-group select,.form-group textarea{padding:0.65rem 0.85rem;background:var(--panel);border:1px solid var(--border);color:var(--white);font-family:var(--font-m);font-size:0.78rem;outline:none;transition:border-color 0.2s;clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px))}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--purple2);box-shadow:0 0 12px var(--glow-p)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-dim)}
 .form-group select option{background:var(--panel)}
 .form-section-label{font-family:var(--font-vt);font-size:1rem;letter-spacing:0.15em;color:var(--purple3);margin-top:0.5rem}
-.card-icons{display:flex;gap:0.5rem;margin-bottom:0.5rem}
-.card-icon-pill{padding:0.25rem 0.6rem;border:1px solid var(--border);font-family:var(--font-m);font-size:0.58rem;color:var(--text-dim);letter-spacing:0.05em}
+.form-notice{display:flex;align-items:flex-start;gap:0.75rem;padding:1rem 1.2rem;background:rgba(155,95,255,0.1);border:1px solid rgba(155,95,255,0.35);margin-top:0.25rem}
+.form-notice span{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.form-notice p{font-family:var(--font-m);font-size:0.7rem;color:var(--silver2);line-height:1.6;letter-spacing:0.02em}
 .btn-place-order{width:100%;padding:1rem;background:linear-gradient(90deg,var(--purple),var(--blue));color:#fff;border:none;font-family:var(--font-d);font-size:0.78rem;letter-spacing:0.18em;cursor:pointer;transition:opacity 0.2s,box-shadow 0.2s;text-transform:uppercase;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));margin-top:0.5rem}
 .btn-place-order:hover{opacity:0.88;box-shadow:0 8px 30px var(--glow-p)}
 .order-success{display:none;text-align:center;padding:4rem 2rem;flex-direction:column;align-items:center;gap:1.5rem}
 .order-success.show{display:flex}
 .success-icon{font-size:4rem;animation:pulse-star 2s ease-in-out infinite}
 .success-title{font-family:var(--font-r);font-size:clamp(3rem,7vw,5rem);color:var(--purple3);text-shadow:0 0 30px var(--glow-p)}
-.success-sub{font-family:var(--font-m);font-size:0.8rem;color:var(--silver2);line-height:1.7;max-width:400px}
+.success-sub{font-family:var(--font-m);font-size:0.82rem;color:var(--silver2);line-height:1.8;max-width:460px}
+.success-details{background:var(--panel);border:1px solid var(--border);padding:1.2rem 1.8rem;font-family:var(--font-m);font-size:0.72rem;color:var(--silver2);line-height:1.9;text-align:left;max-width:400px;width:100%;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
+.success-details span{color:var(--purple3);font-weight:700}
 .btn-back-home{padding:0.85rem 2.2rem;background:linear-gradient(135deg,var(--purple),var(--teal));color:#fff;border:none;font-family:var(--font-d);font-size:0.7rem;letter-spacing:0.14em;cursor:pointer;transition:opacity 0.2s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
 .btn-back-home:hover{opacity:0.85}
 .empty-checkout{text-align:center;padding:5rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1rem}
@@ -567,7 +570,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;display:flex;ali
 <div class="page" id="page-checkout" style="display:none">
   <div class="checkout-pg">
     <h2>CHECKOUT</h2>
-    <span class="sub-label">// SECURE · FAST · YOURS</span>
+    <span class="sub-label">// TELL US WHERE TO SEND YOUR ORDER</span>
  
     <!-- Empty state -->
     <div class="empty-checkout" id="checkout-empty" style="display:none">
@@ -579,8 +582,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;display:flex;ali
     <!-- Success state -->
     <div class="order-success" id="order-success">
       <div class="success-icon">✦</div>
-      <div class="success-title">ORDER PLACED!</div>
-      <p class="success-sub">Your order has been confirmed. We'll send a confirmation to your email. Expect your glitch-coded pieces to arrive in 5–7 business days.</p>
+      <div class="success-title">YOU'RE ALL SET!</div>
+      <p class="success-sub">Thanks for your order. We'll be in touch with you very soon to confirm your details and arrange payment. Keep an eye on your inbox!</p>
+      <div class="success-details" id="success-details"></div>
       <button class="btn-back-home" onclick="clearCart();showPage('home')">BACK TO HOME</button>
     </div>
  
@@ -589,40 +593,37 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:60px;display:flex;ali
       <div class="checkout-form">
         <div class="form-section-label">// CONTACT INFO</div>
         <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" placeholder="e.g. Jade"/></div>
-          <div class="form-group"><label>Last Name</label><input type="text" placeholder="e.g. Nova"/></div>
+          <div class="form-group"><label>First Name *</label><input id="f-fname" type="text" placeholder="e.g. Jade"/></div>
+          <div class="form-group"><label>Last Name *</label><input id="f-lname" type="text" placeholder="e.g. Nova"/></div>
         </div>
-        <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@email.com"/></div>
-        <div class="form-group"><label>Phone (optional)</label><input type="tel" placeholder="+351 000 000 000"/></div>
+        <div class="form-group"><label>Email Address *</label><input id="f-email" type="email" placeholder="you@email.com"/></div>
+        <div class="form-group"><label>Phone (optional)</label><input id="f-phone" type="tel" placeholder="+351 000 000 000"/></div>
  
         <div class="form-section-label">// DELIVERY ADDRESS</div>
-        <div class="form-group"><label>Street Address</label><input type="text" placeholder="123 Cyber Lane"/></div>
+        <div class="form-group"><label>Street Address *</label><input id="f-street" type="text" placeholder="123 Cyber Lane"/></div>
         <div class="form-row">
-          <div class="form-group"><label>City</label><input type="text" placeholder="Lisbon"/></div>
-          <div class="form-group"><label>Postal Code</label><input type="text" placeholder="1000-001"/></div>
+          <div class="form-group"><label>City *</label><input id="f-city" type="text" placeholder="Lisbon"/></div>
+          <div class="form-group"><label>Postal Code *</label><input id="f-post" type="text" placeholder="1000-001"/></div>
         </div>
         <div class="form-group">
-          <label>Country</label>
-          <select>
+          <label>Country *</label>
+          <select id="f-country">
             <option>Portugal</option><option>Spain</option><option>France</option><option>Germany</option><option>Netherlands</option><option>United Kingdom</option><option>Italy</option><option>Other</option>
           </select>
         </div>
  
-        <div class="form-section-label">// PAYMENT</div>
-        <div class="card-icons">
-          <div class="card-icon-pill">VISA</div>
-          <div class="card-icon-pill">MC</div>
-          <div class="card-icon-pill">AMEX</div>
-          <div class="card-icon-pill">PAYPAL</div>
+        <div class="form-section-label">// ANY NOTES FOR US?</div>
+        <div class="form-group">
+          <label>Order Notes (optional)</label>
+          <textarea id="f-notes" class="ctext-input" placeholder="e.g. specific sizing questions, special requests..." style="height:90px;resize:vertical;font-family:var(--font-m);font-size:0.75rem;line-height:1.5"></textarea>
         </div>
-        <div class="form-group"><label>Card Number</label><input type="text" placeholder="•••• •••• •••• ••••" maxlength="19"/></div>
-        <div class="form-row">
-          <div class="form-group"><label>Expiry Date</label><input type="text" placeholder="MM / YY" maxlength="7"/></div>
-          <div class="form-group"><label>CVV</label><input type="text" placeholder="•••" maxlength="4"/></div>
-        </div>
-        <div class="form-group"><label>Name on Card</label><input type="text" placeholder="JADE NOVA"/></div>
  
-        <button class="btn-place-order" onclick="placeOrder()">PLACE ORDER →</button>
+        <div class="form-notice">
+          <span>💜</span>
+          <p>We'll contact you by email to confirm your order and arrange payment. No card details needed right now.</p>
+        </div>
+ 
+        <button class="btn-place-order" onclick="placeOrder()">SEND MY ORDER →</button>
       </div>
  
       <div>
@@ -891,8 +892,20 @@ function renderCheckout(){
   document.getElementById('checkout-total').textContent=`€${total.toFixed(2)}`;
 }
 function placeOrder(){
+  const fname = document.getElementById('f-fname')?.value.trim();
+  const lname = document.getElementById('f-lname')?.value.trim();
+  const email = document.getElementById('f-email')?.value.trim();
+  const street = document.getElementById('f-street')?.value.trim();
+  const city = document.getElementById('f-city')?.value.trim();
+  const post = document.getElementById('f-post')?.value.trim();
+  if(!fname||!lname||!email||!street||!city||!post){
+    toast('Please fill in all required fields ✦'); return;
+  }
+  const country = document.getElementById('f-country')?.value||'';
   document.getElementById('checkout-main').style.display='none';
   document.getElementById('checkout-empty').style.display='none';
+  const sd = document.getElementById('success-details');
+  sd.innerHTML=`<span>Name:</span> ${fname} ${lname}<br><span>Email:</span> ${email}<br><span>Ship to:</span> ${street}, ${city} ${post}, ${country}`;
   document.getElementById('order-success').classList.add('show');
   cart=[];updateCartUI();
 }
